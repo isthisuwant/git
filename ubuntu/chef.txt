@@ -1,0 +1,30 @@
+chef generate cookbook srec
+
+knife upload cookbook
+
+chef-client -z -o starter srec
+
+=============================================
+
+Unzip chef-starter.zip
+
+mv starter /root/chef-repo/cookbooks 
+
+cd chef-repo
+knife cookbook site download learn_chef_httpd 
+
+tar -xvf learn_chef_httpd-0.2.0.tar.gz
+
+cd /root/chef-repo/learn_chef_httpd/recipes
+cat default.rb 
+
+mv /root/chef-repo/learn_chef_httpd /root/chef-repo/cookbooks
+cd /root/chef-repo/cookbooks
+Next
+knife cookbook upload learn_chef_httpd 
+
+knife bootstrap 192.168.56.102 --ssh-user root --ssh-password edureka --node-name chefNode 
+
+Knife node list
+
+chef-client
